@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  <meta charset="utf-8">
+  <meta name="description" content="Layering Virtual Try-On.">
+  <meta name="keywords" content="Layering Virtual Try-On, LVTON, Image Diffusion Models, Image Edit">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:image" content="./static/images/[插入您的缩略图名称.png]"/>
+  <link rel="image_src" href="./static/images/[插入您的缩略图名称.png]">
+  <link rel="icon" type="image/x-icon" href="./static/images/favicon.ico"/>
+
+  <title>Layering Virtual Try-On</title>
+
+  <!-- TODO: -->
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <!-- 请记得修改为您自己的 gtag id -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=[您的_GTAG_ID]"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', '[您的_GTAG_ID]');
+  </script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container">
+      <div class="container has-text-centered">
+        <h1 class="title is-1 publication-title">
+          Layering Virtual Try-On
+        </h1>
+        <h2 class="subtitle is-4 publication-subtitle">
+          ECCV 2026
+        </h2>
+        
+        <div class="is-size-5 publication-authors">
+          <div class="author-block" style="margin-right: 20px;">
+            <a href="https://github.com/ChuenFung">Chun Feng</a>
+          </div>
+          <div class="author-block" style="margin-right: 20px;">
+            <a href="https://armastuschen.github.io/">Bowei Chen</a>
+          </div>
+          <div class="author-block" style="margin-right: 20px;">
+            <a href="https://shanmy.github.io/">Mengyi Shan</a>
+          </div>
+          <div class="author-block" style="margin-right: 20px;">
+            <a href="https://www.irakemelmacher.com/">Ira Kemelmacher-Shlizerman</a>
+          </div>
+        </div>
+
+        <div class="is-size-5 publication-authors">
+          <span class="author-block">University of Washington</span>
+        </div>
+
+        <div class="column has-text-centered">
+          <div class="publication-links">
+            <!-- arXiv 链接 -->
+            <span class="link-block">
+                <a href="[插入 arXiv 链接]" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+            </span>
+            <span class="link-block">
+              <a href="https://github.com/ChuenFung/Layering-Virtual-Try-On" class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                    <i class="fab fa-github"></i>
+                </span>
+                <span>Code</span>
+                </a>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="hero teaser">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="has-text-centered">
+        <img style="width: 100%;" src="./static/images/teaser.png" alt="Sequential editing examples of Layering Virtual Try-On."/>
+        <h2 class="subtitle has-text-justified">
+          We propose a Layering Virtual Try-On (LVTON) method that allows for swapping, adding, and removing clothing layers on any given person image. Given a person image, a garment image, and a textual instruction, it generates a try-on image reflecting the desired garment edit while preserving inner layers when necessary. We showcase three sequential editing examples that exhibit natural layering, accurate garments, consistent facial identity, and realistic shading within complex backgrounds.
+        </h2>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            In the real world, fashion is about layering: adding a jacket over a shirt, or a sequence of adding and removing layers, rather than just a single-layer swap. This fundamental real-world task remains a challenge in existing Virtual Try-On (VTON) methods, which excel at single-layer replacement but are not designed to layer or de-layer an existing outfit. This paper proposes Layering Virtual Try-On (LVTON), a layering benchmark and method that preserves an existing outfit while enabling sequential layering. 
+          </p>
+          <p>
+            Our key insight is that the LVTON challenge must be disentangled into two distinct competencies: (1) General VTON Priors and (2) Specific Layering Knowledge. First, our model obtains general VTON priors by being trained on data produced by an automatic data generation pipeline. Second, the model is fine-tuned on a small, dedicated LVTON dataset to learn the layering logic. Our method achieves state-of-the-art results on our LVTON benchmark and demonstrates superior generalizability.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <hr/>
+
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Our Two-Stage Pipeline</h2>
+        <div class="content has-text-justified">
+          <div class="has-text-centered">
+            <img style="width: 100%;" src="./static/images/pipeline.png" alt="Our two-stage pipeline illustration."/>
+          </div>
+          <p>
+            Our method disentangles the LVTON task into two stages. The first stage builds general VTON priors by synthesizing mask-free, pose-mismatched training pairs from videos. The second stage uses a small, real-world layering dataset to teach the model specific layering knowledge (e.g., "add", "swap", "remove") alongside a novel temporal reversal augmentation technique.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <hr/>
+
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Qualitative Results</h2>
+        <div class="content has-text-justified">
+          
+          <div class="has-text-centered" style="margin-bottom: 30px;">
+            <p><strong>Layering Virtual Try-On Results</strong></p>
+            <img style="width: 100%;" src="./static/images/layering_result.png" alt="Qualitative results compared to baselines."/>
+            <p class="is-size-6" style="margin-top: 10px;">Our method successfully composites the target garment while preserving the inner layer. Baselines often erase inner details or introduce artifacts.</p>
+          </div>
+
+          <div class="has-text-centered" style="margin-bottom: 30px;">
+            <p><strong>In-the-wild Generalization</strong></p>
+            <img style="width: 100%;" src="./static/images/wild_result.png" alt="In-the-wild layering editing."/>
+            <p class="is-size-6" style="margin-top: 10px;">Our model successfully generalizes to complex, out-of-distribution scenarios sourced from the internet, accurately executing instructions like "add," "swap," and inner-layer swaps.</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <hr/>
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video Demonstration</h2>
+        <div class="publication-video">
+          <iframe width="640" height="480" src="./static/videos/tryon_video.mp4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</body>
+</html>
